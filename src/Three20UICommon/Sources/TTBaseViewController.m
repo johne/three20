@@ -164,8 +164,15 @@
 
   if (!self.popupViewController) {
     UINavigationBar* bar = self.navigationController.navigationBar;
-    bar.tintColor = _navigationBarTintColor;
-    bar.barStyle = _navigationBarStyle;
+	
+	if (_navigationBarTintColor == [UIColor blackColor] && _navigationBarStyle == UIBarStyleDefault) {
+	  bar.barStyle = UIBarStyleBlack;
+	  bar.tintColor = nil;
+	}
+	else {
+	  bar.tintColor = _navigationBarTintColor;
+	  bar.barStyle = _navigationBarStyle;
+	}
     [[UIApplication sharedApplication] setStatusBarStyle:_statusBarStyle animated:YES];
   }
 }
