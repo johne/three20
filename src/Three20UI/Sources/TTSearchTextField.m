@@ -422,11 +422,11 @@ static const CGFloat kDesiredTableHeight = 150;
       _shadowView.userInteractionEnabled = NO;
     }
 
-    if (!_tableView.superview) {
-      _tableView.frame = [self rectForSearchResults:YES];
-      _shadowView.frame = CGRectMake(_tableView.left, _tableView.top-1,
-                                     _tableView.width, kShadowHeight);
-
+	_tableView.frame = [self rectForSearchResults:YES];
+	_shadowView.frame = CGRectMake(_tableView.left, _tableView.top-1,
+								   _tableView.width, kShadowHeight);
+	  
+	if (!_tableView.superview) {
       UIView* superview = self.superviewForSearchResults;
       [superview addSubview:_tableView];
 
