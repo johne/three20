@@ -744,8 +744,8 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)showActivityView:(BOOL)show {
-  self.navigationItem.rightBarButtonItem.enabled = !show;
   if (show) {
+    self.navigationItem.rightBarButtonItem.enabled = FALSE;
     if (!_activityView) {
       CGRect frame = CGRectMake(0, 0, self.view.width, _scrollView.height);
       _activityView = [[TTActivityLabel alloc] initWithFrame:frame
@@ -755,6 +755,7 @@
       [self.view addSubview:_activityView];
     }
   } else {
+	[self updateSendCommand];
     [_activityView removeFromSuperview];
     TT_RELEASE_SAFELY(_activityView);
   }

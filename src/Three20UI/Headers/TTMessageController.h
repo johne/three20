@@ -17,6 +17,7 @@
 // UI
 #import "Three20UI/TTViewController.h"
 #import "Three20UI/TTTextEditorDelegate.h"
+#import "Three20UI/TTPickerTextFieldDelegate.h"
 
 @protocol TTTableViewDataSource;
 @protocol TTMessageControllerDelegate;
@@ -38,7 +39,7 @@
  * view, but handle the delivery of the message yourself. This class is also
  * useful when you want to customize the fields presented to the user.
  */
-@interface TTMessageController : TTViewController <UITextFieldDelegate, TTTextEditorDelegate> {
+@interface TTMessageController : TTViewController <UITextFieldDelegate, TTTextEditorDelegate, TTPickerTextFieldDelegate> {
 @protected
   NSArray*          _fields;
   NSMutableArray*   _fieldViews;
