@@ -180,6 +180,12 @@
       break;
     }
 
+	case TTTableHeaderDragRefreshErrorStatus: {
+		_statusLabel.text = TTLocalizedString(@"Error Loading...",
+											  @"Error loading the table view.");
+		break;
+	}
+
     default: {
       break;
     }
@@ -199,6 +205,10 @@
     _arrowImage.hidden = NO;
   }
 
+}
+
+- (void) hideArrow:(BOOL)shouldHide {
+    _arrowImage.hidden = shouldHide;
 }
 
 

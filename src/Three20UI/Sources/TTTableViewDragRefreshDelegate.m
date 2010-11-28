@@ -90,6 +90,11 @@ static const CGFloat kRefreshDeltaY = -65.0f;
 }
 
 
+- (void) errorAnimationDone {
+	[_headerView hideArrow:NO];
+}
+
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark -
@@ -185,11 +190,15 @@ static const CGFloat kRefreshDeltaY = -65.0f;
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)model:(id<TTModel>)model didFailLoadWithError:(NSError*)error {
   [_headerView flipImageAnimated:NO];
-  [_headerView setStatus:TTTableHeaderDragRefreshReleaseToReload];
+  [_headerView setStatus:TTTableHeaderDragRefreshErrorStatus];
   [_headerView showActivity:NO];
+  [_headerView hideArrow:YES];
 
   [UIView beginAnimations:nil context:NULL];
   [UIView setAnimationDuration:ttkDefaultTransitionDuration];
+  [UIView setAnimationDelay:2];
+  [UIView setAnimationDelegate:self];
+  [UIView setAnimationDidStopSelector:@selector(errorAnimationDone)];	
   _controller.tableView.contentInset = UIEdgeInsetsZero;
   [UIView commitAnimations];
 }
@@ -206,6 +215,7 @@ static const CGFloat kRefreshDeltaY = -65.0f;
   _controller.tableView.contentInset = UIEdgeInsetsZero;
   [UIView commitAnimations];
 }
+
 
 
 @end

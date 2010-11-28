@@ -20,7 +20,8 @@
 typedef enum {
   TTTableHeaderDragRefreshReleaseToReload,
   TTTableHeaderDragRefreshPullToReload,
-  TTTableHeaderDragRefreshLoadingStatus
+  TTTableHeaderDragRefreshLoadingStatus,
+  TTTableHeaderDragRefreshErrorStatus,
 } TTTableHeaderDragRefreshStatus;
 
 /**
@@ -43,5 +44,6 @@ typedef enum {
 - (void)setUpdateDate:(NSDate*)date;
 - (void)showActivity:(BOOL)shouldShow;
 - (void)setStatus:(TTTableHeaderDragRefreshStatus)status;
+- (void) hideArrow:(BOOL)shouldHide;
 
 @end
