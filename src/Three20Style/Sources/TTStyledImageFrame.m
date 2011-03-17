@@ -117,5 +117,8 @@
   }
 }
 
+- (UIImage*)imageForLayerWithStyle:(TTStyle*)style {
+	return self.imageNode.image;
+}
 
 @end

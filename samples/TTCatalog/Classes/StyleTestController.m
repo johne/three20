@@ -46,8 +46,8 @@
     [TTSolidBorderStyle styleWithColor:black width:1 next:nil]]],
 
     // SpeechBubble
-    [TTShapeStyle styleWithShape:[TTSpeechBubbleShape shapeWithRadius:5 pointLocation:30
-                                                      pointAngle:0
+    [TTShapeStyle styleWithShape:[TTSpeechBubbleShape shapeWithRadius:5 pointLocation:200
+                                                      pointAngle:90
                                                       pointSize:CGSizeMake(10,20)] next:
     [TTSolidFillStyle styleWithColor:[UIColor whiteColor] next:
     [TTSolidBorderStyle styleWithColor:black width:1 next:nil]]],

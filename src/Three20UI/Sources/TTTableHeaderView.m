@@ -40,6 +40,7 @@
     self.style = TTSTYLE(tableHeader);
 
     _label = [[UILabel alloc] init];
+	_label.adjustsFontSizeToFitWidth = TRUE;
     _label.text = title;
     _label.backgroundColor = [UIColor clearColor];
     _label.textColor = TTSTYLEVAR(tableHeaderTextColor)
@@ -73,7 +74,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)layoutSubviews {
-  _label.frame = CGRectMake(12, 0, self.width, self.height);
+  _label.frame = CGRectMake(12, 0, self.width - 24, self.height);
 }
 
 

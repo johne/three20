@@ -47,7 +47,13 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)dealloc {
-  self.superController.popupViewController = nil;
+	@try {
+		self.superController.popupViewController = nil;
+	}
+	@catch (NSException * e) {
+		// ignore... must not be important.. prolly already deallocated or maybe it leaked
+	}
+	
 
   [super dealloc];
 }
